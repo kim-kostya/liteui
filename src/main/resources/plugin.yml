@@ -1,0 +1,7 @@
+name: LiteUI
+version: '${version}'
+main: me.litepas.minecraft.liteui.LiteUI
+api-version: 1.16
+prefix: LiteUI
+authors: [ litepas ]
+description: UI library for minecraft servers
