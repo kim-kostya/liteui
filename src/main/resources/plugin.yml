@@ -5,3 +5,7 @@ api-version: 1.16
 prefix: LiteUI
 authors: [ litepas ]
 description: UI library for minecraft servers
+depend: [NBTAPI]
+commands:
+  debug-menu:
+    permission: minecraft.commands.gamemode

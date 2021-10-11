@@ -67,14 +67,14 @@ public abstract class Element {
         itemPickHandlers.add(handler);
     }
 
-    public void onItemPut(ItemStack item) {
+    public void putItem(ItemStack item) {
         itemPutHandlers.forEach(handler -> handler.on(item));
         if (canCallUpdate) {
             parent.update();
         }
     }
 
-    public void onItemPick() {
+    public void pickItem() {
         itemPickHandlers.forEach(ItemPickHandler::on);
         if (canCallUpdate) {
             parent.update();

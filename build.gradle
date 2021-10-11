@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "xyz.jpenilla.run-paper" version "1.0.4"
 }
 
 group = 'me.litepas.minecraft'
@@ -15,10 +16,16 @@ repositories {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
+    maven {
+        name = 'codemc-repo'
+        url = 'https://repo.codemc.org/repository/maven-public/'
+    }
 }
 
 dependencies {
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT'
+
+    implementation 'de.tr7zw:item-nbt-api-plugin:2.8.0'
 }
 
 def targetJavaVersion = 16
@@ -34,6 +41,12 @@ java {
 tasks.withType(JavaCompile).configureEach {
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         options.release = targetJavaVersion
+    }
+}
+
+tasks {
+    runServer {
+        minecraftVersion("1.16.5")
     }
 }
 
